@@ -1,5 +1,9 @@
 'use strict';
 
+
+const { Campaign } = require('../..');
+const handleError = require('../../../api/lib/helpers/errorHandler');
+
 const { mongoose } = require('../db'),
   Schema = mongoose.Schema,
   ModelError = require('../modelError');
@@ -48,12 +52,14 @@ const campaignSchema = new Schema({
 })
 
 campaignSchema.statics.addCampaign= function addCampaign(params){
-     this.create(params).then(function (savedCampaign) {
+     this.create(params).then(function (savedCampaign){ 
       // request is valid
       // persist the saved box in the user
+
      console.log(savedCampaign); 
      return savedCampaign;
 })}
+
 
 //campaignSchema.methods.notifyallusers
 

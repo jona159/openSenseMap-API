@@ -1,5 +1,8 @@
 'use strict';
 
+const { Campaign } = require('../..');
+const handleError = require('../../../api/lib/helpers/errorHandler');
+
 const { mongoose } = require('../db'),
   Schema = mongoose.Schema,
   ModelError = require('../modelError');
