@@ -1,8 +1,5 @@
 'use strict';
 
-const { Campaign } = require('../..');
-const handleError = require('../../../api/lib/helpers/errorHandler');
-
 const { mongoose } = require('../db'),
   Schema = mongoose.Schema,
   ModelError = require('../modelError');
@@ -52,16 +49,18 @@ const campaignSchema = new Schema({
 
 campaignSchema.statics.addCampaign= function addCampaign(params){
      this.create(params).then(function (savedCampaign) {
-      
+      // request is valid
+      // persist the saved box in the user
      console.log(savedCampaign); 
      return savedCampaign;
 })}
 
-campaignSchema.statics.findCampaignById = function findCampaignById(){
-  const campaignId = '61b3217e3789bd025015e011';
-  let campaign = Campaign.findById(campaignId);
-  return campaign; 
+campaignSchema.statics.findCampaignbyId = function findCampaignbyId(id){
+    let foundCampaign = this.findById(id);
+    console.log(foundCampaign);
+    return foundCampaign;
 }
+
 //campaignSchema.methods.notifyallusers
 
 const campaignModel = mongoose.model('Campaign', campaignSchema);

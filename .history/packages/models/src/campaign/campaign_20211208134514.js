@@ -1,8 +1,5 @@
 'use strict';
 
-const { Campaign } = require('../..');
-const handleError = require('../../../api/lib/helpers/errorHandler');
-
 const { mongoose } = require('../db'),
   Schema = mongoose.Schema,
   ModelError = require('../modelError');
@@ -52,17 +49,40 @@ const campaignSchema = new Schema({
 
 campaignSchema.statics.addCampaign= function addCampaign(params){
      this.create(params).then(function (savedCampaign) {
-      
+      // request is valid
+      // persist the saved box in the user
      console.log(savedCampaign); 
      return savedCampaign;
 })}
 
-campaignSchema.statics.findCampaignById = function findCampaignById(){
-  const campaignId = '61b3217e3789bd025015e011';
-  let campaign = Campaign.findById(campaignId);
-  return campaign; 
-}
+////////////////NEW FUNCITIONS //////////////////
+
+// return campaigns that match the title parameter
+campaignSchema.statics.listCampaings = function listCampaigns(title){
+  const filter = {
+      title: { '$regex': title, '$options': 'i'}
+  };
+
+  const projection = {
+      _id: 1,
+      title: 1,
+      owner: 1,
+      aboutMe: 0,
+      campaignGoals: 0,
+      campaignDetails: 0,
+      phenomena: 0,
+      startDate: 1,
+      endDate: 1 
+  };
+
+  return Promise.resolve(this.find(filter, projection));
+};
+
+//camapaignSchema.statics.findCampaignbyId = function findCampaignbyId(){
+   
 //campaignSchema.methods.notifyallusers
+
+/////////////////////////////////////////////////
 
 const campaignModel = mongoose.model('Campaign', campaignSchema);
 

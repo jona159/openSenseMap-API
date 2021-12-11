@@ -57,11 +57,16 @@ campaignSchema.statics.addCampaign= function addCampaign(params){
      return savedCampaign;
 })}
 
-campaignSchema.statics.findCampaignById = function findCampaignById(){
-  const campaignId = '61b3217e3789bd025015e011';
-  let campaign = Campaign.findById(campaignId);
-  return campaign; 
-}
+campaignSchema.statics.findCampaignById = function findCampaignById(req, res, next){
+    let { campaignId} = req._userParams;
+
+    try{
+        const campaign = await Campaign.findById(campaignId)
+        return campaign;
+    }catch(err){
+        handleError(err, next);
+    }    
+};
 //campaignSchema.methods.notifyallusers
 
 const campaignModel = mongoose.model('Campaign', campaignSchema);
