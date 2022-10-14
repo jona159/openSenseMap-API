@@ -1,18 +1,21 @@
-'use strict';
+"use strict";
 
 module.exports = {
   env: {
     es6: true,
-    node: true
+    node: true,
   },
   parserOptions: {
     ecmaVersion: 2018,
     ecmaFeatures: {
-      experimentalObjectRestSpread: true
-    }
+      experimentalObjectRestSpread: true,
+    },
   },
-  extends: ['@sensebox/eslint-config-sensebox'],
+  extends: ["@sensebox/eslint-config-sensebox"],
   rules: {
-    complexity: ['warn', 20]
-  }
+    complexity: ["warn", 20],
+    "linebreak-style": 0,
+    avoidEscape: true,
+    allowTemplateLiterals: true,
+  },
 };

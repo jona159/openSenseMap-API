@@ -1,66 +1,75 @@
-'use strict';
+"use strict";
 
-const { mongoose } = require('../db'),
+const { mongoose } = require("../db"),
   Schema = mongoose.Schema,
-  ModelError = require('../modelError');
+  ModelError = require("../modelError");
 
-//   Campaign Schema 
+//   Campaign Schema
 
 const campaignSchema = new Schema({
-    title: {
-        type: String,
-        required:true,
-        trim: true
-    },
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    aboutMe: {
-        type: String, 
-        required: true,
-        trim: true
-    },
-    campaignGoals: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    campaignDetails: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    startDate: {
-        type: Date, 
-        required: true
-    },
-    endDate: {
-        type: Date
-    },
-    phenomena: {
-        type: String,
-        trim: true,
-        required: true,
-        enum: ['PM10', 'Wind speed']
-    }  
+  title: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: false,
+  },
+  priority: {
+    type: String,
+    required: true,
+    enum: ["Urgent", "High", "Medium", "Low"],
+  },
+  // aboutMe: {
+  //     type: String,
+  //     required: true,
+  //     trim: true
+  // },
+  // campaignGoals: {
+  //     type: String,
+  //     required: true,
+  //     trim: true
+  // },
+  // campaignDetails: {
+  //     type: String,
+  //     required: true,
+  //     trim: true
+  // },
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  endDate: {
+    type: Date,
+  },
+  phenomena: {
+    type: String,
+    trim: true,
+    required: true,
+    enum: ["PM10", "Wind speed"],
+  },
+});
 
-})
-
-campaignSchema.statics.addCampaign= function addCampaign(params){
-     this.create(params).then(function (savedCampaign) {
-      // request is valid
-      // persist the saved box in the user
-     console.log(savedCampaign); 
-     return savedCampaign;
-})}
+campaignSchema.statics.addCampaign = function addCampaign(params) {
+  this.create(params).then(function (savedCampaign) {
+    // request is valid
+    // persist the saved box in the user
+    console.log(savedCampaign);
+    return savedCampaign;
+  });
+};
 
 //campaignSchema.methods.notifyallusers
 
-const campaignModel = mongoose.model('Campaign', campaignSchema);
-
+const campaignModel = mongoose.model("Campaign", campaignSchema);
 
 module.exports = {
-    schema: campaignSchema,
-    model: campaignModel
-}
+  schema: campaignSchema,
+  model: campaignModel,
+};
