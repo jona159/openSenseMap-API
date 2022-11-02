@@ -26,6 +26,10 @@ const campaignSchema = new Schema({
     required: true,
     enum: ["Urgent", "High", "Medium", "Low"],
   },
+  location: {
+    type: String,
+    required: false,
+  },
   // aboutMe: {
   //     type: String,
   //     required: true,

@@ -38,24 +38,24 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@grpc/grpc-js@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.4.2.tgz#273e9b81990b95fb9f3b043847e6861246a491a9"
-  integrity sha512-aUN6oGk9un8rfYWz73nQgFxPCYJQYd8LpIGguZHBsNduBMyqG6EWANrsVBuTG+nl/l4dKb3x+qi1l9+oxDxqGg==
+"@grpc/grpc-js@^1.7.3":
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.7.3.tgz#f2ea79f65e31622d7f86d4b4c9ae38f13ccab99a"
+  integrity sha512-H9l79u4kJ2PVSxUNA08HMYAnUBLj9v6KjYQ7SQ71hOZcEXhShE/y5iQCesP8+6/Ik/7i2O0a10bPquIcYfufog==
   dependencies:
-    "@grpc/proto-loader" "^0.6.4"
+    "@grpc/proto-loader" "^0.7.0"
     "@types/node" ">=12.12.47"
 
-"@grpc/proto-loader@^0.6.4":
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.6.6.tgz#d8e51ea808ec5fa54d9defbecbf859336fb2da71"
-  integrity sha512-cdMaPZ8AiFz6ua6PUbP+LKbhwJbFXnrQ/mlnKGUyzDUZ3wp7vPLksnmLCBX6SHgSmjX7CbNVNLFYD5GmmjO4GQ==
+"@grpc/proto-loader@^0.7.0":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.7.3.tgz#75a6f95b51b85c5078ac7394da93850c32d36bb8"
+  integrity sha512-5dAvoZwna2Py3Ef96Ux9jIkp3iZ62TUsV00p3wVBPNX5K178UbNi8Q7gQVqwXT1Yq9RejIGG9G2IPEo93T6RcA==
   dependencies:
     "@types/long" "^4.0.1"
     lodash.camelcase "^4.3.0"
     long "^4.0.0"
-    protobufjs "^6.10.0"
-    yargs "^16.1.1"
+    protobufjs "^7.0.0"
+    yargs "^16.2.0"
 
 "@mapbox/node-pre-gyp@^1.0.0":
   version "1.0.0"
@@ -2409,6 +2409,11 @@ long@^4.0.0:
   resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
+long@^5.0.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-5.2.0.tgz#2696dadf4b4da2ce3f6f6b89186085d94d52fd61"
+  integrity sha512-9RTUNjK60eJbx3uz+TEGF7fUr29ZDxR5QzXcyDpeSfeH28S9ycINflOgOlppit5U+4kNTe83KQnMEerw7GmE8w==
+
 long@~3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
@@ -3080,10 +3085,10 @@ protobufjs@^5.0.3:
     glob "^7.0.5"
     yargs "^3.10.0"
 
-protobufjs@^6.10.0:
-  version "6.11.2"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-6.11.2.tgz#de39fabd4ed32beaa08e9bb1e30d08544c1edf8b"
-  integrity sha512-4BQJoPooKJl2G9j3XftkIXjoC9C0Av2NOrWmbLWT1vH32GcSUHjM0Arra6UfTsVyfMAuFzaLucXn1sadxJydAw==
+protobufjs@^7.0.0:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.1.2.tgz#a0cf6aeaf82f5625bffcf5a38b7cd2a7de05890c"
+  integrity sha512-4ZPTPkXCdel3+L81yw3dG6+Kq3umdWKh7Dc7GW/CpNk4SX3hK58iPCWeCyhVTDrbkNeKrYNZ7EojM5WDaEWTLQ==
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"
@@ -3095,9 +3100,8 @@ protobufjs@^6.10.0:
     "@protobufjs/path" "^1.1.2"
     "@protobufjs/pool" "^1.1.0"
     "@protobufjs/utf8" "^1.1.0"
-    "@types/long" "^4.0.1"
     "@types/node" ">=13.7.0"
-    long "^4.0.0"
+    long "^5.0.0"
 
 pseudomap@^1.0.2:
   version "1.0.2"
@@ -4159,7 +4163,7 @@ yargs-unparser@2.0.0:
     flat "^5.0.2"
     is-plain-obj "^2.1.0"
 
-yargs@16.2.0, yargs@^16.1.1, yargs@^16.2.0:
+yargs@16.2.0, yargs@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
