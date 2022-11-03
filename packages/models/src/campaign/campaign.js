@@ -12,6 +12,11 @@ const campaignSchema = new Schema({
     required: true,
     trim: true,
   },
+  polygonDraw: {
+    type: String,
+    required: true,
+    trim: false,
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -28,8 +33,12 @@ const campaignSchema = new Schema({
   },
   location: {
     type: String,
-    required: false,
+    required: true,
   },
+  // paricipantCount: {
+  //   type: Number,
+  //   required: true,
+  // },
   // aboutMe: {
   //     type: String,
   //     required: true,
