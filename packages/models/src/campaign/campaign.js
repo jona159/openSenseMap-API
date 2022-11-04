@@ -35,10 +35,10 @@ const campaignSchema = new Schema({
     type: String,
     required: true,
   },
-  // paricipantCount: {
-  //   type: Number,
-  //   required: true,
-  // },
+  participantCount: {
+    type: Number,
+    required: false,
+  },
   // aboutMe: {
   //     type: String,
   //     required: true,
